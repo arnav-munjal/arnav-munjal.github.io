@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Arnav Munjal Engineering Portfolio</title>
+<meta name="description" content="Mechanical engineering portfolio of Arnav Munjal, Georgia Tech: design, prototyping, manufacturing, and analysis projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F4F1; --surface:#FFFFFF; --ink:#16191C; --muted:#5B6268; --rule:#D5D8D2; --rule-strong:#9EA49E;
+  --accent:#C9501C; --accent-soft:#F6E3D9; --shadow:0 1px 2px rgba(22,25,28,.06),0 6px 20px rgba(22,25,28,.06);
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111315; --surface:#191C1F; --ink:#E7E9E5; --muted:#9BA2A7; --rule:#2B3034; --rule-strong:#4A5156;
+    --accent:#EE7A45; --accent-soft:#3A2419; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111315; --surface:#191C1F; --ink:#E7E9E5; --muted:#9BA2A7; --rule:#2B3034; --rule-strong:#4A5156;
+  --accent:#EE7A45; --accent-soft:#3A2419; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0;padding:0 20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:.005em;line-height:1.05;text-wrap:balance;margin:0}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* header */
+header.top{padding-block:56px 40px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;border-bottom:2px solid var(--ink)}
+header.top h1{font-size:clamp(52px,9vw,104px);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:.9}
+.intro{max-width:60ch;margin:18px 0 0;font-size:18px;color:var(--ink)}
+.intro strong{font-weight:600}
+.contact{display:grid;gap:6px;font-family:var(--mono);font-size:13px;text-align:right}
+.contact span{color:var(--muted)}
+.contact .val{user-select:all}
+
+/* BOM index */
+.index{margin-block:40px 16px}
+.index .label{margin-bottom:10px;display:block}
+.bom-wrap{overflow-x:auto;border:1px solid var(--rule-strong);background:var(--surface)}
+table.bom{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+.bom th,.bom td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+.bom th{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule-strong)}
+.bom tr:last-child td{border-bottom:0}
+.bom td.no{font-family:var(--mono);width:56px;color:var(--accent);font-variant-numeric:tabular-nums}
+.bom td.dt{font-family:var(--mono);font-size:12.5px;white-space:nowrap;color:var(--muted);font-variant-numeric:tabular-nums}
+.bom a{font-weight:600;text-decoration:none}
+.bom a:hover{text-decoration:underline}
+.bom tbody tr:hover{background:var(--accent-soft)}
+
+/* projects */
+section.proj{padding-block:64px 8px;scroll-margin-top:12px}
+.proj-head{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:baseline;border-bottom:1px solid var(--rule-strong);padding-bottom:14px}
+.proj-head .no{font-family:var(--mono);font-size:14px;color:var(--accent);grid-row:span 2;align-self:start;padding-top:10px}
+.proj-head h2{font-size:clamp(34px,5vw,52px)}
+.proj-head .sub{color:var(--muted);font-size:15px}
+.titleblock{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule-strong);border-top:0;background:var(--surface)}
+.titleblock div{padding:10px 14px;border-right:1px solid var(--rule)}
+.titleblock div:last-child{border-right:0}
+.titleblock .v{font-family:var(--mono);font-size:13px;margin-top:2px;color:var(--ink)}
+.proj-body{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:40px;margin-top:28px;align-items:start}
+.proj-body.flip{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)}
+.proj-body.flip .media{order:2}
+.text p{margin:0 0 14px;max-width:62ch}
+.text h3{font-size:22px;margin:22px 0 10px;text-transform:uppercase;letter-spacing:.03em}
+.text h3:first-child{margin-top:0}
+.text ul{margin:0;padding-left:0;list-style:none;display:grid;gap:10px}
+.text li{padding-left:22px;position:relative;max-width:62ch}
+.text li::before{content:"";position:absolute;left:2px;top:.72em;width:9px;height:2px;background:var(--accent)}
+.stat{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:22px;padding-top:18px;border-top:1px dashed var(--rule-strong)}
+.stat div{display:grid}
+.stat b{font-family:var(--display);font-size:32px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* figures */
+.media{display:grid;gap:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+figure{margin:0;display:grid;gap:6px}
+figure button{all:unset;cursor:zoom-in;display:block;background:var(--surface);border:1px solid var(--rule);overflow:hidden;line-height:0}
+figure button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+figure button:hover img{transform:scale(1.025)}
+figure.contain img{object-fit:contain;background:#fff}
+figcaption{font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.45}
+figcaption b{color:var(--accent);font-weight:500;margin-right:6px}
+.r43 button{aspect-ratio:4/3}.r34 button{aspect-ratio:3/4}.r169 button{aspect-ratio:16/9}.r32 button{aspect-ratio:3/2}.r11 button{aspect-ratio:1/1}
+
+/* skills + footer */
+.skills{margin-top:72px;border-top:2px solid var(--ink);padding-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.skills h3{font-size:22px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-family:var(--mono);font-size:12.5px;padding:4px 9px;border:1px solid var(--rule-strong);background:var(--surface)}
+footer{padding-block:48px 56px;margin-top:56px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;font-size:14px;color:var(--muted)}
+footer .mono{font-family:var(--mono);font-size:13px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(10,12,14,.92);display:grid;place-items:center;padding:24px;z-index:50}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:calc(100% - 60px);object-fit:contain;background:#fff}
+.lb p{color:#E7E9E5;font-family:var(--mono);font-size:13px;margin:12px 0 0;text-align:center;max-width:80ch}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:none;border:1px solid #6b7278;color:#fff;font-family:var(--mono);font-size:13px;padding:6px 12px;cursor:pointer}
+.lb .inner{display:grid;justify-items:center;max-height:100%;width:100%;height:100%;align-content:center}
+
+@media (max-width:860px){
+  header.top{grid-template-columns:1fr}
+  .contact{text-align:left}
+  .proj-body,.proj-body.flip{grid-template-columns:1fr;gap:28px}
+  .proj-body.flip .media{order:0}
+  .titleblock{grid-template-columns:1fr 1fr}
+  .titleblock div:nth-child(2){border-right:0}
+  .titleblock div:nth-child(-n+2){border-bottom:1px solid var(--rule)}
+  .skills{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  .grid3{grid-template-columns:1fr 1fr}
+  header.top{padding-block:36px 28px}
+}
+@media (prefers-reduced-motion:reduce){figure img{transition:none}figure button:hover img{transform:none}}
+</style>
+</head>
+<body><div class="wrap">
+  <header class="top">
+    <div>
+      <div class="label">Mechanical Engineering Portfolio · Georgia Tech</div>
+      <h1>Arnav<br>Munjal</h1>
+      <p class="intro">Mechanical engineering student at <strong>Georgia Tech</strong> (GPA 4.0/4.0) focused on mechanical design, prototyping, and manufacturing. Relevant coursework includes Thermodynamics, Engineering Materials, Computing Techniques, and Statics. The projects below cover CAD and GD&amp;T documentation, machining and 3D printing, numerical methods, and vibration data analysis.</p>
+    </div>
+    <div class="contact">
+      <span>Email</span><div class="val">amunjal31@gatech.edu</div>
+      <span>LinkedIn</span><div><a href="https://www.linkedin.com/in/arnav-munjal" target="_blank" rel="noopener">linkedin.com/in/arnav-munjal</a></div>
+      <span>Based in</span><div>Boston, MA · U.S. Citizen</div>
+    </div>
+  </header>
+
+  <nav class="index" aria-label="Projects">
+    <span class="label">Project index</span>
+    <div class="bom-wrap">
+      <table class="bom">
+        <thead><tr><th>Item</th><th>Project</th><th>Tools and methods</th><th>Date</th></tr></thead>
+        <tbody>
+          <tr><td class="no">01</td><td><a href="#battlebot">RoboJackets BattleBot</a></td><td>Autodesk Inventor, Fusion 360 CAM, CNC waterjet, manual mill, 3D printing</td><td class="dt">Sep 2025 – Present</td></tr>
+          <tr><td class="no">02</td><td><a href="#bridges">Bedford Bog Bridges</a></td><td>Bridge schematics, recycled culvert pipe, carpentry, team lead</td><td class="dt">Apr 2024 – Sep 2025</td></tr>
+          <tr><td class="no">03</td><td><a href="#press">Cocoa Butter Press</a></td><td>SolidWorks, GD&amp;T, working drawings, motion study</td><td class="dt">Jan 2026 – May 2026</td></tr>
+          <tr><td class="no">04</td><td><a href="#bearing">Bearing Fault Diagnosis for Condition Monitoring</a></td><td>MATLAB, signal processing, FFT, regression, Runge-Kutta, Newton-Raphson</td><td class="dt">Jan 2026 – May 2026</td></tr>
+          <tr><td class="no">05</td><td><a href="#watch">Cobra Pocket Watch</a></td><td>SolidWorks, GD&amp;T, BOM, FDM 3D printing</td><td class="dt">Jan 2026 – May 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </nav>
+
+  <!-- 01 -->
+  <section class="proj" id="battlebot">
+    <div class="proj-head">
+      <span class="no">01</span>
+      <h2>RoboJackets BattleBot</h2>
+      <div class="sub">Mechanical team member on a 10-member team building a 3 lb combat robot</div>
+    </div>
+    <div class="titleblock">
+      <div><div class="label">Organization</div><div class="v">RoboJackets</div></div>
+      <div><div class="label">Role</div><div class="v">Chassis Team Member</div></div>
+      <div><div class="label">CAD / CAM</div><div class="v">Inventor, Fusion 360</div></div>
+      <div><div class="label">Date</div><div class="v">Sep 2025 – Present</div></div>
+    </div>
+    <div class="proj-body">
+      <div class="media">
+        <div class="grid2">
+          <figure class="r34"><button data-cap="Assembled robot with printed yellow armor, aluminum plates, and drive motor."><img src="img/robo-bot.jpg" alt="Assembled BattleBot on a table with yellow 3D-printed armor" loading="lazy"></button><figcaption><b>A</b>Built robot</figcaption></figure>
+          <figure class="r34"><button data-cap="Robot in hand, showing the printed armor shell and internal plates."><img src="img/robo-hand.jpg" alt="BattleBot held in hand showing the armor and internal layout" loading="lazy"></button><figcaption><b>B</b>Armor and internals</figcaption></figure>
+        </div>
+        <div class="grid2">
+          <figure class="r169 contain"><button data-cap="Full chassis assembly in Autodesk Inventor."><img src="img/robo-cad.jpg" alt="Isometric CAD render of the robot chassis" loading="lazy"></button><figcaption><b>C</b>Inventor assembly, isometric</figcaption></figure>
+          <figure class="r169 contain"><button data-cap="Top view of the assembly showing drive, electronics bay, and weapon motor packaging."><img src="img/robo-cad-top.jpg" alt="Top view CAD render of the robot chassis" loading="lazy"></button><figcaption><b>D</b>Inventor assembly, top view</figcaption></figure>
+        </div>
+      </div>
+      <div class="text">
+        <h3>What I did</h3>
+        <ul>
+          <li>Design, prototype, and validate a modular chassis for a 3 lb combat robot in Autodesk Inventor. The robot survived all 5 competition matches, with quick part swaps between rounds.</li>
+          <li>Machine 6061 aluminum weapon components on a manual mill and cut external plates to ±0.010 in (±0.25 mm) on a CNC waterjet, using toolpaths programmed in Autodesk Fusion 360 CAM.</li>
+          <li>Integrated 3D-printed rails, armor, internal plates, and a wheel mold, freeing budget and weight allowance for weapon prototyping.</li>
+        </ul>
+        <div class="stat">
+          <div><b>5 / 5</b><span>matches survived</span></div>
+          <div><b>±0.010 in</b><span>waterjet tolerance</span></div>
+          <div><b>15%</b><span>material cost cut</span></div>
+          <div><b>10%</b><span>weight reduced</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="proj" id="bridges">
+    <div class="proj-head">
+      <span class="no">02</span>
+      <h2>Bedford Bog Bridges</h2>
+      <div class="sub">Project lead for low-rise trail bridges across wetland on Bedford conservation land</div>
+    </div>
+    <div class="titleblock">
+      <div><div class="label">Organization</div><div class="v">Bedford Trails Committee</div></div>
+      <div><div class="label">Role</div><div class="v">Project Lead</div></div>
+      <div><div class="label">Materials</div><div class="v">Culvert pipe, PT lumber</div></div>
+      <div><div class="label">Date</div><div class="v">Apr 2024 – Sep 2025</div></div>
+    </div>
+    <div class="proj-body flip">
+      <div class="media">
+        <figure class="r43"><button data-cap="Completed bridge run winding through the wetland."><img src="img/bridge-finished.jpg" alt="Finished wooden bog bridge curving through the woods" loading="lazy" style="object-position:50% 70%"></button><figcaption><b>A</b>Completed bridge sections in place</figcaption></figure>
+        <div class="grid3">
+          <figure class="r34"><button data-cap="Cutting culvert pipe to length in the shop."><img src="img/bridge-shop.jpg" alt="Volunteers cutting black culvert pipe on a table saw" loading="lazy"></button><figcaption><b>B</b>Processing culvert pipe</figcaption></figure>
+          <figure class="r34"><button data-cap="Prototype frame: stringers resting on recycled culvert pipe floats."><img src="img/bridge-proto.jpg" alt="Prototype bridge frame on a driveway" loading="lazy"></button><figcaption><b>C</b>Prototype frame</figcaption></figure>
+          <figure class="r34"><button data-cap="Stringers set on culvert supports along the trail."><img src="img/bridge-frames.jpg" alt="Bridge stringers placed on culvert pipe on the trail" loading="lazy"></button><figcaption><b>D</b>Frames set on trail</figcaption></figure>
+          <figure class="r34"><button data-cap="Volunteer crew fastening decking on site."><img src="img/bridge-crew.jpg" alt="Volunteer crew installing decking" loading="lazy"></button><figcaption><b>E</b>Decking with volunteers</figcaption></figure>
+          <figure class="r34"><button data-cap="One finished modular section."><img src="img/bridge-section.jpg" alt="A single finished bridge section on the trail" loading="lazy"></button><figcaption><b>F</b>Finished section</figcaption></figure>
+        </div>
+      </div>
+      <div class="text">
+        <h3>The problem</h3>
+        <p>Wet sections of the trail were getting wider as walkers stepped around mud. A raised walkway keeps foot traffic on one line and protects the surrounding wetland.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Designed schematics for 75+ feet of bog bridges built from recycled culvert pipe and pressure-treated wood, extending structure lifespan in wetland conditions.</li>
+          <li>Built a prototype frame to check the layout before committing to the full run.</li>
+          <li>Led 15+ volunteers to assemble six modular bridge sections on schedule, training them in basic carpentry.</li>
+        </ul>
+        <div class="stat">
+          <div><b>75+ ft</b><span>of bridge built</span></div>
+          <div><b>6</b><span>modular sections</span></div>
+          <div><b>15+</b><span>volunteers led</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="proj" id="press">
+    <div class="proj-head">
+      <span class="no">03</span>
+      <h2>Cocoa Butter Press Assembly</h2>
+      <div class="sub">Three-person SolidWorks design of a compact, low-cost press. I led the reservoir sub-assembly.</div>
+    </div>
+    <div class="titleblock">
+      <div><div class="label">Team</div><div class="v">3 members</div></div>
+      <div><div class="label">My module</div><div class="v">Reservoir sub-assembly</div></div>
+      <div><div class="label">CAD</div><div class="v">SolidWorks</div></div>
+      <div><div class="label">Date</div><div class="v">Jan 2026 – May 2026</div></div>
+    </div>
+    <div class="proj-body">
+      <div class="media">
+        <figure class="r43 contain"><button data-cap="My reservoir sub-assembly integrated into the frame: canister, piston, reservoir, and sliding collection tray."><img src="img/press-cad.jpg" alt="SolidWorks render of the collection sub-assembly inside the press frame" loading="lazy"></button><figcaption><b>A</b>Reservoir sub-assembly integrated in the frame</figcaption></figure>
+        <figure class="r169 contain"><button data-cap="Exploded view with BOM: 12 items with part number, description, material, and quantity."><img src="img/press-bom.jpg" alt="Exploded assembly drawing with bill of materials" loading="lazy"></button><figcaption><b>B</b>Exploded drawing with 12-item BOM</figcaption></figure>
+        <div class="grid3">
+          <figure class="r11 contain"><button data-cap="Full press assembly: frame, hydraulic ram, and collection system."><img src="img/press-full.jpg" alt="Full cocoa butter press assembly render" loading="lazy"></button><figcaption><b>C</b>Final assembly</figcaption></figure>
+          <figure class="r11 contain"><button data-cap="Early hand sketch of the full press concept."><img src="img/press-sketch.jpg" alt="Hand sketch of the cocoa butter press" loading="lazy"></button><figcaption><b>D</b>Concept sketch</figcaption></figure>
+          <figure class="r11 contain"><button data-cap="Working drawing of the perforated canister."><img src="img/press-drawing.jpg" alt="Working drawing of the canister part" loading="lazy"></button><figcaption><b>E</b>Canister working drawing</figcaption></figure>
+        </div>
+      </div>
+      <div class="text">
+        <h3>The problem</h3>
+        <p>Build a compact, low-cost press that turns cocoa beans into cocoa butter, is simple to assemble, and lets the user pull the butter out without taking the machine apart. The team split it into three modules: frame, pressing system, and collection system.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Created 30+ fully dimensioned 2D and 3D sketches with Geometric Dimensioning and Tolerancing (GD&amp;T) as CAD references for teammates.</li>
+          <li>Built a 15+ part reservoir sub-assembly in SolidWorks (perforated canister, piston, reservoir with sliding cap, support plate, and removable collection tray) with motion animations to verify integration with the frame and press sub-assemblies, resolving interferences before physical prototyping.</li>
+          <li>Authored manufacturing and assembly documentation for 3 sub-assemblies, including part working drawings and an exploded BOM drawing, and presented design and test results to give the team a clear reference for fabrication and future iterations.</li>
+        </ul>
+        <h3>What I learned</h3>
+        <p>The hardest part was integration. Mismatched dimensions between modules broke mates in the final assembly, and fixing them showed how much shared reference dimensions and early communication matter on a team build.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="proj" id="bearing">
+    <div class="proj-head">
+      <span class="no">04</span>
+      <h2>Bearing Fault Diagnosis for Condition Monitoring</h2>
+      <div class="sub">Vibration analysis and failure prediction for drive-end motor bearings, using the Case Western Reserve University dataset</div>
+    </div>
+    <div class="titleblock">
+      <div><div class="label">Methods</div><div class="v">FFT, regression, RK4</div></div>
+      <div><div class="label">Data</div><div class="v">12 kHz, 2 HP motor</div></div>
+      <div><div class="label">Tools</div><div class="v">MATLAB, signal processing</div></div>
+      <div><div class="label">Date</div><div class="v">Jan 2026 – May 2026</div></div>
+    </div>
+    <div class="proj-body flip">
+      <div class="media">
+        <figure class="r169 contain"><button data-cap="FFT of normal vs. faulted bearing: the fault signal shows strong, distinct peaks across 0 to 5000 Hz."><img src="img/bearing-fft.jpg" alt="FFT plot comparing normal and fault bearing signals" loading="lazy"></button><figcaption><b>A</b>FFT: normal vs. fault signal</figcaption></figure>
+        <div class="grid2">
+          <figure class="r169 contain"><button data-cap="RMS acceleration for normal and 0.007, 0.014, 0.021, 0.028 in fault diameters."><img src="img/bearing-rms.jpg" alt="RMS acceleration by fault diameter over time" loading="lazy"></button><figcaption><b>B</b>RMS by fault diameter</figcaption></figure>
+          <figure class="r169 contain"><button data-cap="Linear, quadratic, cubic, and 4th-order fits of mean RMS vs. fault diameter. The cubic fit (R² = 0.96) was selected; the 4th-order fit overfits."><img src="img/bearing-regression.jpg" alt="Regression fits of RMS acceleration against fault diameter" loading="lazy"></button><figcaption><b>C</b>Regression fits</figcaption></figure>
+        </div>
+        <figure class="r169 contain"><button data-cap="Wear model solved with RK4 and Euler. RK4 crosses the failure threshold at about 225 hours; Euler predicts failure later."><img src="img/bearing-rk4.jpg" alt="Vibration intensity vs time, RK4 and Euler methods with failure threshold" loading="lazy"></button><figcaption><b>D</b>Remaining-life prediction, RK4 vs. Euler</figcaption></figure>
+      </div>
+      <div class="text">
+        <h3>The problem</h3>
+        <p>Given accelerometer data from a motor's drive-end bearing, tell a healthy bearing from a damaged one, estimate how bad the damage is, and predict when it will fail.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Analyzed CWRU bearing vibration data in MATLAB with Fast Fourier Transform (FFT) analysis, showing faulted bearings spread energy across 0–5 kHz at up to 1.0 g, versus below 2 kHz and 0.2 g when healthy.</li>
+          <li>Built 4 regression models relating fault diameter to RMS acceleration, selecting the cubic fit (R² = 0.96) and rejecting the 4th-order fit as overfit.</li>
+          <li>Reconstructed a missing peak with Newton and spline interpolation and compared relative error across methods.</li>
+          <li>Solved for motor speed with Newton-Raphson and secant methods, landing within 0.04% of the documented 1797 RPM.</li>
+          <li>Predicted bearing failure at 225 hours with a Runge-Kutta (RK4) wear model to support predictive maintenance, and showed why Euler's truncation error overestimates remaining life.</li>
+        </ul>
+        <div class="stat">
+          <div><b>1796.3</b><span>RPM computed (1797 documented)</span></div>
+          <div><b>225 h</b><span>predicted time to failure</span></div>
+          <div><b>R² 0.96</b><span>selected cubic fit</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="proj" id="watch">
+    <div class="proj-head">
+      <span class="no">05</span>
+      <h2>Cobra Pocket Watch</h2>
+      <div class="sub">Solo concept-to-prototype design: a pocket watch whose chain is replaced by wrapping cobras, drawn from Hindu culture</div>
+    </div>
+    <div class="titleblock">
+      <div><div class="label">Build</div><div class="v">FDM 3D print</div></div>
+      <div><div class="label">Role</div><div class="v">Solo project</div></div>
+      <div><div class="label">CAD</div><div class="v">SolidWorks</div></div>
+      <div><div class="label">Date</div><div class="v">Jan 2026 – May 2026</div></div>
+    </div>
+    <div class="proj-body">
+      <div class="media">
+        <div class="grid2">
+          <figure class="r43"><button data-cap="Final 3D-printed assembly: hinged cover, engraved face, and cobra chain."><img src="img/watch-print.jpg" alt="Assembled orange 3D-printed pocket watch with snake chain" loading="lazy"></button><figcaption><b>A</b>Printed and assembled prototype</figcaption></figure>
+          <figure class="r43"><button data-cap="Printed parts before assembly: cover, watch face, connector, and cobra chain."><img src="img/watch-parts.jpg" alt="Separate 3D-printed parts of the pocket watch" loading="lazy"></button><figcaption><b>B</b>Printed parts</figcaption></figure>
+        </div>
+        <div class="grid2">
+          <figure class="r32 contain"><button data-cap="Ideation sheet: six concepts combining snakes and clocks."><img src="img/watch-ideation.jpg" alt="Hand-drawn ideation sketches of snake and clock concepts" loading="lazy"></button><figcaption><b>C</b>Ideation sketches</figcaption></figure>
+          <figure class="r32 contain"><button data-cap="SolidWorks assembly render with the GT logo on the face."><img src="img/watch-render.jpg" alt="SolidWorks render of the pocket watch assembly" loading="lazy"></button><figcaption><b>D</b>SolidWorks assembly</figcaption></figure>
+          <figure class="r32 contain"><button data-cap="GD&amp;T table: control per part (cylindricity, concentricity, position) and interference fit limits."><img src="img/watch-gdt.jpg" alt="GD&amp;T and fit tolerance tables" loading="lazy"></button><figcaption><b>E</b>GD&amp;T and fit tables</figcaption></figure>
+          <figure class="r32 contain"><button data-cap="Exploded assembly drawing linked to the BOM."><img src="img/watch-bom.jpg" alt="Exploded view drawing with BOM" loading="lazy"></button><figcaption><b>F</b>Exploded view with BOM</figcaption></figure>
+        </div>
+      </div>
+      <div class="text">
+        <h3>The idea</h3>
+        <p>A pocket watch goes everywhere, so it is a natural way to carry a piece of your culture with you. Cobras are central in Hindu culture, and here they replace the chain and wrap around the watch body. The concept came from the "unusual connection" ideation method and the "cover or wrap" and "apply an existing mechanism in a new way" design heuristics.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Carried the design from ideation sketches through multi-view, section, and assembly hand drawings to a full SolidWorks assembly, using revolve, shell, extrude, and sweep-and-loft features.</li>
+          <li>Specified GD&amp;T controls for each part and designed interference fits (ball-and-socket snake joints, hinged cover) with 0.04 ± 0.005 in and 0.05 ± 0.005 in limits.</li>
+          <li>Produced part working drawings and a BOM-linked exploded view, then 3D printed and assembled a working prototype that validated fit and manufacturability.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills" aria-label="Skills">
+    <div>
+      <h3>Manufacturing</h3>
+      <div class="chips"><span>CNC machining</span><span>CNC waterjet</span><span>Manual mill</span><span>3D printing</span><span>Rapid prototyping</span><span>Plastic molding</span></div>
+    </div>
+    <div>
+      <h3>CAD/CAM &amp; Software</h3>
+      <div class="chips"><span>SolidWorks</span><span>Autodesk Inventor</span><span>Autodesk Fusion 360 CAM</span><span>MATLAB</span><span>Microsoft Excel</span></div>
+    </div>
+    <div>
+      <h3>Engineering methods</h3>
+      <div class="chips"><span>GD&amp;T</span><span>Technical drawings</span><span>BOM</span><span>FFT</span><span>Regression</span><span>Runge-Kutta</span><span>Newton-Raphson</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Arnav Munjal · B.S. Mechanical Engineering, Georgia Institute of Technology</div>
+    <div class="mono">amunjal31@gatech.edu</div>
+  </footer>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button type="button" id="lb-close">Close ✕</button>
+  <div class="inner"><img id="lb-img" alt=""><p id="lb-cap"></p></div>
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),close=document.getElementById('lb-close'),last=null;
+  document.querySelectorAll('figure button').forEach(function(b){
+    b.setAttribute('aria-label','Enlarge image');
+    b.addEventListener('click',function(){
+      var i=b.querySelector('img'); last=b;
+      img.src=i.src; img.alt=i.alt; cap.textContent=b.getAttribute('data-cap')||'';
+      lb.hidden=false; close.focus();
+    });
+  });
+  function shut(){lb.hidden=true; img.src=''; if(last) last.focus();}
+  close.addEventListener('click',shut);
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('inner')) shut();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden) shut();});
+})();
+</script>
+</body>
+</html>
