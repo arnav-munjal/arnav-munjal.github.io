@@ -136,7 +136,7 @@ footer .mono{font-family:var(--mono);font-size:13px}
     <div>
       <div class="label">Mechanical Engineering Portfolio · Georgia Tech</div>
       <h1>Arnav<br>Munjal</h1>
-      <p class="intro">Mechanical engineering student at <strong>Georgia Tech</strong> (GPA 4.0/4.0) focused on mechanical design, prototyping, and manufacturing. Relevant coursework includes Thermodynamics, Engineering Materials, Numerical Methods (MATLAB), Differential Equations, and Statics. The projects below cover CAD and GD&amp;T documentation, machining and 3D printing, numerical methods, and vibration data analysis.</p>
+      <p class="intro">Mechanical engineering student at <strong>Georgia Tech</strong> (GPA 4.0/4.0) focused on mechanical design, prototyping, and manufacturing. Relevant coursework includes Thermodynamics, Engineering Materials, Numerical Methods (MATLAB), Differential Equations, and Statics. The projects below cover CAD and GD&amp;T documentation, machining and 3D printing, numerical methods, solid rocket motor simulation, and vibration data analysis.</p>
     </div>
     <div class="contact">
       <span>Email</span><div class="val">amunjal31@gatech.edu</div>
@@ -152,10 +152,11 @@ footer .mono{font-family:var(--mono);font-size:13px}
         <thead><tr><th>Item</th><th>Project</th><th>Tools and methods</th><th>Date</th></tr></thead>
         <tbody>
           <tr><td class="no">01</td><td><a href="#battlebot">RoboJackets BattleBot</a></td><td>Autodesk Inventor, Fusion 360 CAM, CNC waterjet, manual mill, 3D printing</td><td class="dt">Sep 2025 – Present</td></tr>
-          <tr><td class="no">02</td><td><a href="#bridges">Bedford Bog Bridges</a></td><td>Bridge schematics, recycled culvert pipe, carpentry, team lead</td><td class="dt">Jun 2024 – Nov 2024</td></tr>
-          <tr><td class="no">03</td><td><a href="#press">Cocoa Butter Press</a></td><td>SolidWorks, assemblies, working drawings, motion study</td><td class="dt">Jan 2026 – May 2026</td></tr>
-          <tr><td class="no">04</td><td><a href="#bearing">Bearing Fault Diagnosis for Condition Monitoring</a></td><td>MATLAB, signal processing, FFT, regression, Runge-Kutta, Newton-Raphson</td><td class="dt">Jan 2026 – May 2026</td></tr>
-          <tr><td class="no">05</td><td><a href="#watch">Cobra Pocket Watch</a></td><td>SolidWorks, GD&amp;T, BOM, FDM 3D printing</td><td class="dt">Jan 2026 – May 2026</td></tr>
+          <tr><td class="no">02</td><td><a href="#rocket">Solid Rocket Motor Simulation</a></td><td>MATLAB, internal ballistics, isentropic nozzle flow, numerical integration</td><td class="dt">Sep 2026 – Present</td></tr>
+          <tr><td class="no">03</td><td><a href="#bridges">Bedford Bog Bridges</a></td><td>Bridge schematics, recycled culvert pipe, carpentry, team lead</td><td class="dt">Jun 2024 – Nov 2024</td></tr>
+          <tr><td class="no">04</td><td><a href="#press">Cocoa Butter Press</a></td><td>SolidWorks, assemblies, working drawings, motion study</td><td class="dt">Jan 2026 – May 2026</td></tr>
+          <tr><td class="no">05</td><td><a href="#bearing">Bearing Fault Diagnosis for Condition Monitoring</a></td><td>MATLAB, signal processing, FFT, regression, Runge-Kutta, Newton-Raphson</td><td class="dt">Jan 2026 – May 2026</td></tr>
+          <tr><td class="no">06</td><td><a href="#watch">Cobra Pocket Watch</a></td><td>SolidWorks, GD&amp;T, BOM, FDM 3D printing</td><td class="dt">Jan 2026 – May 2026</td></tr>
         </tbody>
       </table>
     </div>
@@ -190,7 +191,7 @@ footer .mono{font-family:var(--mono);font-size:13px}
         <ul>
           <li>Co-designed, prototyped, and validated a modular chassis for a 3 lb combat robot in Autodesk Inventor. The robot survived all 5 competition matches, with quick part swaps between rounds.</li>
           <li>Machined 6061 aluminum weapon components on a manual mill and cut external plates on a CNC waterjet, using toolpaths programmed in Autodesk Fusion 360 CAM.</li>
-          <li>Integrated 3D-printed rails, armor, and internal plates into the chassis and molded the wheels in a 3D-printed mold, freeing budget and weight allowance for weapon prototyping.</li>
+          <li>Integrated 3D-printed armor and internal plates into the chassis alongside the team's CNC-milled UHMW rails, and molded the wheels in a 3D-printed mold, freeing budget and weight allowance for weapon prototyping.</li>
         </ul>
         <div class="stat">
           <div><b>5 / 5</b><span>matches survived</span></div>
@@ -200,9 +201,55 @@ footer .mono{font-family:var(--mono);font-size:13px}
   </section>
 
   <!-- 02 -->
-  <section class="proj" id="bridges">
+  <section class="proj" id="rocket">
     <div class="proj-head">
       <span class="no">02</span>
+      <h2>Solid Rocket Motor Simulation</h2>
+      <div class="sub">MATLAB internal-ballistics model of a 9-grain BATES motor for Georgia Tech Experimental Rocketry's Mini Motors program</div>
+    </div>
+    <div class="titleblock">
+      <div><div class="label">Organization</div><div class="v">GTXR</div></div>
+      <div><div class="label">Role</div><div class="v">Propulsion Team Member</div></div>
+      <div><div class="label">Tools</div><div class="v">MATLAB</div></div>
+      <div><div class="label">Date</div><div class="v">Sep 2026 – Present</div></div>
+    </div>
+    <div class="proj-body flip">
+      <div class="media">
+        <figure class="r169 contain"><button data-cap="Thrust vs. time: thrust rises from 939 lbf to a 1,030 lbf peak near 2.4 s as burn area grows, then falls as the grains burn out at 4.26 s."><img src="img/rocket-thrust.jpg" alt="MATLAB plot of thrust versus time over a 4.26 second burn" loading="lazy"></button><figcaption><b>A</b>Thrust vs. time</figcaption></figure>
+        <div class="grid2">
+          <figure class="r169 contain"><button data-cap="Chamber pressure vs. time, peaking at 586.8 psi (MEOP) with a 573.5 psi average."><img src="img/rocket-pressure.jpg" alt="MATLAB plot of chamber pressure versus time" loading="lazy"></button><figcaption><b>B</b>Chamber pressure</figcaption></figure>
+          <figure class="r169 contain"><button data-cap="Kn (burning area over throat area) vs. time. Kn drives chamber pressure, so pressure and thrust follow its shape."><img src="img/rocket-kn.jpg" alt="MATLAB plot of Kn versus time" loading="lazy"></button><figcaption><b>C</b>Kn (burn area / throat area)</figcaption></figure>
+          <figure class="r169 contain"><button data-cap="Propellant mass flow rate vs. time, in slugs per second."><img src="img/rocket-mdot.jpg" alt="MATLAB plot of mass flow rate versus time" loading="lazy"></button><figcaption><b>D</b>Mass flow rate</figcaption></figure>
+          <figure class="r169 contain"><button data-cap="Simulation outputs printed by the MATLAB script."><img src="img/rocket-results.jpg" alt="MATLAB command window listing the motor simulation results" loading="lazy"></button><figcaption><b>E</b>Simulation results</figcaption></figure>
+        </div>
+      </div>
+      <div class="text">
+        <h3>The problem</h3>
+        <p>Predict how a solid rocket motor performs over its whole burn (chamber pressure, thrust, and impulse) from its grain geometry and propellant properties, then size a nozzle for it.</p>
+        <h3>What I did</h3>
+        <ul>
+          <li>Modeled a 9-grain BATES motor (3.239 in OD, 1.8 in core, 6 in grains) with a 1.2 in throat, stepping core and end-face regression in 1 ms increments with a burn-rate law (r = aP<sup>n</sup>).</li>
+          <li>Solved chamber pressure at each step from a propellant-burn/nozzle-outflow mass balance driven by Kn, giving a 586.8 psi maximum expected operating pressure and a 573.5 psi average.</li>
+          <li>Sized an optimally expanded nozzle at the average chamber pressure using isentropic flow relations: Mach 2.91 exit, 6.72 in² exit area, and 7,717 ft/s exit velocity.</li>
+          <li>Computed thrust, including the pressure-thrust term, and integrated it over the burn: 1,030 lbf peak, 1,004 lbf average, 4,271 lbf·s total impulse (N class), and 240 s specific impulse from 17.8 lb of propellant. All 14 outputs matched reference values.</li>
+          <li>Reported port-to-throat area ratio (2.25) and peak mass flux (1.55 lb/in²·s) as design checks, and plotted Kn, pressure, thrust, and mass flow over time.</li>
+        </ul>
+        <h3>What's next</h3>
+        <p>I've used the simulation's grain, casing, and closure dimensions to finish CAD for my own mini motor with a custom bell nozzle. Next come analysis (hand calculations and ANSYS), fabrication, and a static fire.</p>
+        <div class="stat">
+          <div><b>1,004 lbf</b><span>average thrust</span></div>
+          <div><b>240 s</b><span>specific impulse</span></div>
+          <div><b>N</b><span>impulse class</span></div>
+          <div><b>4.26 s</b><span>burn time</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="proj" id="bridges">
+    <div class="proj-head">
+      <span class="no">03</span>
       <h2>Bedford Bog Bridges</h2>
       <div class="sub">Project lead for low-rise trail bridges across wetland on Bedford conservation land</div>
     </div>
@@ -241,10 +288,10 @@ footer .mono{font-family:var(--mono);font-size:13px}
     </div>
   </section>
 
-  <!-- 03 -->
+  <!-- 04 -->
   <section class="proj" id="press">
     <div class="proj-head">
-      <span class="no">03</span>
+      <span class="no">04</span>
       <h2>Cocoa Butter Press Assembly</h2>
       <div class="sub">Three-person SolidWorks design of a compact, low-cost press. I designed the collection sub-assembly.</div>
     </div>
@@ -279,10 +326,10 @@ footer .mono{font-family:var(--mono);font-size:13px}
     </div>
   </section>
 
-  <!-- 04 -->
+  <!-- 05 -->
   <section class="proj" id="bearing">
     <div class="proj-head">
-      <span class="no">04</span>
+      <span class="no">05</span>
       <h2>Bearing Fault Diagnosis for Condition Monitoring</h2>
       <div class="sub">Vibration analysis and failure prediction for drive-end motor bearings, using the Case Western Reserve University dataset</div>
     </div>
@@ -321,10 +368,10 @@ footer .mono{font-family:var(--mono);font-size:13px}
     </div>
   </section>
 
-  <!-- 05 -->
+  <!-- 06 -->
   <section class="proj" id="watch">
     <div class="proj-head">
-      <span class="no">05</span>
+      <span class="no">06</span>
       <h2>Cobra Pocket Watch</h2>
       <div class="sub">Solo concept-to-prototype design: a pocket watch whose chain is replaced by wrapping cobras, drawn from Hindu culture</div>
     </div>
@@ -353,7 +400,7 @@ footer .mono{font-family:var(--mono);font-size:13px}
         <h3>What I did</h3>
         <ul>
           <li>Carried the design from ideation sketches through multi-view, section, and assembly hand drawings to a full SolidWorks assembly, using revolve, shell, extrude, and sweep-and-loft features.</li>
-          <li>Specified GD&amp;T controls for each part and designed three interference fits (ball-and-socket snake joints, hinged cover) with 0.04 ± 0.005 in and 0.05 ± 0.005 in mating dimensions, a 0.010 in nominal interference.</li>
+          <li>Specified GD&amp;T controls for each part and designed three interference fits (ball-and-socket snake joints, hinged cover).</li>
           <li>Produced part working drawings and a BOM-linked exploded view, then 3D printed and assembled a working prototype that validated fit and manufacturability.</li>
         </ul>
       </div>
@@ -371,7 +418,7 @@ footer .mono{font-family:var(--mono);font-size:13px}
     </div>
     <div>
       <h3>Engineering methods</h3>
-      <div class="chips"><span>GD&amp;T</span><span>Technical drawings</span><span>BOM</span><span>FFT</span><span>Regression</span><span>Runge-Kutta</span><span>Newton-Raphson</span><span>RUL analysis</span></div>
+      <div class="chips"><span>GD&amp;T</span><span>Technical drawings</span><span>BOM</span><span>Isentropic flow</span><span>Internal ballistics</span><span>FFT</span><span>Regression</span><span>Runge-Kutta</span><span>Newton-Raphson</span><span>RUL analysis</span></div>
     </div>
   </section>
 
